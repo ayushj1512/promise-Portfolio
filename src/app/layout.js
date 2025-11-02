@@ -9,9 +9,9 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "ayush juneja | Portfolio",
+  title: "Maitri Bhardwaj | Portfolio",
   description:
-    "Portfolio of ayush juneja — Developer, Designer, and Innovator. Explore projects, skills, and journey.",
+    "Portfolio of Maitri Bhardwaj — Developer, Designer, and Innovator. Explore projects, skills, and journey.",
 };
 
 export default function RootLayout({ children }) {

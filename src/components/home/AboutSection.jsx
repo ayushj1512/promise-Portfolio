@@ -110,7 +110,7 @@ export default function AboutSection() {
           {/* Profile Image */}
           <motion.img
             src="https://i.pinimg.com/736x/33/6b/85/336b856e97a0f73ac7f1781c09fa91b9.jpg"
-            alt="ayush juneja"
+            alt="Maitri Bhardwaj"
             whileHover={{ scale: 1.08, rotate: 1 }}
             transition={{ type: 'spring', stiffness: 180 }}
             className="w-48 h-48 md:w-60 md:h-60 rounded-full object-cover border-4 shadow-lg"
@@ -129,7 +129,7 @@ export default function AboutSection() {
                 textShadow: `0 0 10px ${accent}33`,
               }}
             >
-              I'm ayush juneja
+              I'm Maitri Bhardwaj
             </h3>
 
             <p
@@ -159,7 +159,7 @@ export default function AboutSection() {
 
             {/* Download CV */}
             <motion.a
-              href="/ayush_juneja_CV.pdf"
+              href="/Maitri_Bhardwaj_CV.pdf"
               download
               whileHover={{
                 scale: 1.07,

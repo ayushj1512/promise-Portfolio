@@ -36,7 +36,7 @@ export default function AchievementsSection() {
         My Achievements & Milestones
       </motion.h2>
 
-      {/* 👑 Ayush Special Highlight Card */}
+      {/* 👑 Maitri Special Highlight Card */}
       <motion.div
         className="flex justify-center mb-20 z-10"
         initial={{ scale: 0.8, opacity: 0 }}
@@ -68,7 +68,7 @@ export default function AchievementsSection() {
           </motion.div>
 
           <h3 className="text-2xl md:text-3xl font-bold mb-3 text-yellow-300 drop-shadow-lg">
-            AYUSH — The Visionary Leader
+            Maitri — The Visionary Leader
           </h3>
           <p className="text-base md:text-lg text-white/90 leading-relaxed">
             A symbol of creativity, leadership, and innovation — blending passion

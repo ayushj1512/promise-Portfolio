@@ -25,7 +25,7 @@ export default function Footer() {
             textShadow: `0 0 10px ${accent}55`,
           }}
         >
-          <span style={{ color: accent }}>Ayush</span> Juneja
+          <span style={{ color: accent }}>Maitri</span> Bhardwaj
         </h2>
 
         {/* 🌐 Navigation Links */}
@@ -62,7 +62,7 @@ export default function Footer() {
             },
             {
               Icon: Mail,
-              href: "mailto:ayush@example.com",
+              href: "mailto:Maitri@example.com",
             },
           ].map(({ Icon, href }) => (
             <a
@@ -91,7 +91,7 @@ export default function Footer() {
           color: `${activeTheme.text}aa`,
         }}
       >
-        © {new Date().getFullYear()} Ayush Juneja. All Rights Reserved.
+        © {new Date().getFullYear()} Maitri Bhardwaj. All Rights Reserved.
       </div>
     </footer>
   );

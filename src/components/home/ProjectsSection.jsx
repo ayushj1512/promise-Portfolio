@@ -53,8 +53,9 @@ export default function ProjectsSection() {
     },
   ];
 
-  // Two rows: first row (4 projects), second row (3)
-  const rows = [projects.slice(0, 4), projects.slice(4, 7)];
+  // Reverse Pyramid: first row (4 projects), second row (3)
+  const topRow = projects.slice(0, 4);
+  const bottomRow = projects.slice(4, 7);
 
   return (
     <section
@@ -84,86 +85,152 @@ export default function ProjectsSection() {
       </motion.h2>
 
       {/* Reverse Pyramid Layout */}
-      <div className="flex flex-col gap-14 w-full items-center">
-        {rows.map((row, rowIndex) => (
-          <div
-            key={rowIndex}
-            className="flex flex-wrap justify-center gap-10"
-            style={{
-              maxWidth: `${row.length * 330}px`,
-            }}
-          >
-            {row.map((project, index) => (
-              <motion.div
-                key={index}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: `0 0 25px ${accent}55`,
-                }}
-                transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                onClick={() => window.open(project.url, "_blank")}
-                className="relative group rounded-2xl overflow-hidden border shadow-md backdrop-blur-md transition-all duration-500 cursor-pointer"
-                style={{
-                  borderColor: `${accent}55`,
-                  background:
-                    bgTheme === "black"
-                      ? "rgba(255,255,255,0.05)"
-                      : "rgba(0,0,0,0.05)",
-                  width: "300px",
-                }}
-              >
-                {/* Iframe Preview */}
-                <div className="relative w-full h-56 overflow-hidden">
-                  <iframe
-                    src={project.url}
-                    loading="lazy"
-                    className="w-full h-full border-none transition-transform duration-700 group-hover:scale-105 pointer-events-none"
-                    title={project.name}
-                  ></iframe>
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black opacity-70 group-hover:opacity-50 transition-opacity duration-500"></div>
-                </div>
+      <div className="flex flex-col items-center gap-14 w-full">
+        {/* Top Row (4 Projects) */}
+        <div className="flex flex-wrap justify-center gap-10">
+          {topRow.map((project, index) => (
+            <motion.div
+              key={index}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: `0 0 25px ${accent}55`,
+              }}
+              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              onClick={() => window.open(project.url, "_blank")}
+              className="relative group rounded-2xl overflow-hidden border shadow-md backdrop-blur-md transition-all duration-500 cursor-pointer"
+              style={{
+                borderColor: `${accent}55`,
+                background:
+                  bgTheme === "black"
+                    ? "rgba(255,255,255,0.05)"
+                    : "rgba(0,0,0,0.05)",
+                width: "320px",
+              }}
+            >
+              {/* Iframe Preview (Larger) */}
+              <div className="relative w-full h-72 overflow-hidden">
+                <iframe
+                  src={project.url}
+                  loading="lazy"
+                  className="w-full h-full border-none transition-transform duration-700 group-hover:scale-110 pointer-events-none"
+                  title={project.name}
+                ></iframe>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black opacity-70 group-hover:opacity-50 transition-opacity duration-500"></div>
+              </div>
 
-                {/* Project Details */}
-                <div className="p-5 flex flex-col justify-between">
-                  <div>
-                    <h3
-                      className="text-xl font-semibold mb-2"
-                      style={{ color: accent }}
-                    >
-                      {project.name}
-                    </h3>
-                    <p
-                      className="text-sm leading-relaxed mb-4 opacity-80"
-                      style={{
-                        color:
-                          bgTheme === "black"
-                            ? "rgba(255,255,255,0.8)"
-                            : "rgba(0,0,0,0.7)",
-                      }}
-                    >
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <div
-                    className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-300"
+              {/* Project Details */}
+              <div className="p-6 flex flex-col justify-between">
+                <div>
+                  <h3
+                    className="text-xl font-semibold mb-2"
                     style={{ color: accent }}
                   >
-                    <ExternalLink size={16} /> Visit Project
-                  </div>
+                    {project.name}
+                  </h3>
+                  <p
+                    className="text-sm leading-relaxed mb-4 opacity-80"
+                    style={{
+                      color:
+                        bgTheme === "black"
+                          ? "rgba(255,255,255,0.8)"
+                          : "rgba(0,0,0,0.7)",
+                    }}
+                  >
+                    {project.description}
+                  </p>
                 </div>
 
-                {/* Subtle Hover Glow */}
                 <div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: `linear-gradient(120deg, ${accent}33, ${activeTheme.text}22, ${accent}33)`,
-                  }}
-                ></div>
-              </motion.div>
-            ))}
-          </div>
-        ))}
+                  className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-300"
+                  style={{ color: accent }}
+                >
+                  <ExternalLink size={16} /> Visit Project
+                </div>
+              </div>
+
+              {/* Hover Glow */}
+              <div
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  background: `linear-gradient(120deg, ${accent}33, ${activeTheme.text}22, ${accent}33)`,
+                }}
+              ></div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom Row (3 Projects) */}
+        <div className="flex flex-wrap justify-center gap-12 mt-4">
+          {bottomRow.map((project, index) => (
+            <motion.div
+              key={index}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: `0 0 25px ${accent}55`,
+              }}
+              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              onClick={() => window.open(project.url, "_blank")}
+              className="relative group rounded-2xl overflow-hidden border shadow-md backdrop-blur-md transition-all duration-500 cursor-pointer"
+              style={{
+                borderColor: `${accent}55`,
+                background:
+                  bgTheme === "black"
+                    ? "rgba(255,255,255,0.05)"
+                    : "rgba(0,0,0,0.05)",
+                width: "340px", // slightly wider to balance pyramid
+              }}
+            >
+              {/* Iframe Preview (Larger) */}
+              <div className="relative w-full h-72 overflow-hidden">
+                <iframe
+                  src={project.url}
+                  loading="lazy"
+                  className="w-full h-full border-none transition-transform duration-700 group-hover:scale-110 pointer-events-none"
+                  title={project.name}
+                ></iframe>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black opacity-70 group-hover:opacity-50 transition-opacity duration-500"></div>
+              </div>
+
+              {/* Project Details */}
+              <div className="p-6 flex flex-col justify-between">
+                <div>
+                  <h3
+                    className="text-xl font-semibold mb-2"
+                    style={{ color: accent }}
+                  >
+                    {project.name}
+                  </h3>
+                  <p
+                    className="text-sm leading-relaxed mb-4 opacity-80"
+                    style={{
+                      color:
+                        bgTheme === "black"
+                          ? "rgba(255,255,255,0.8)"
+                          : "rgba(0,0,0,0.7)",
+                    }}
+                  >
+                    {project.description}
+                  </p>
+                </div>
+
+                <div
+                  className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-300"
+                  style={{ color: accent }}
+                >
+                  <ExternalLink size={16} /> Visit Project
+                </div>
+              </div>
+
+              {/* Hover Glow */}
+              <div
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  background: `linear-gradient(120deg, ${accent}33, ${activeTheme.text}22, ${accent}33)`,
+                }}
+              ></div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       {/* Accent Background Glows */}

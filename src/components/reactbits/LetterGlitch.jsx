@@ -233,7 +233,7 @@ const LetterGlitch = ({
       {/* 🌀 Center Text Overlay */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
         <h1 className="text-3xl md:text-5xl font-semibold tracking-wider mb-4 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] animate-pulse">
-          Loading ayush’s World
+          Loading Maitri’s World
         </h1>
 
         <p className="text-white/60 text-sm md:text-base tracking-[0.25em] uppercase mb-8">
